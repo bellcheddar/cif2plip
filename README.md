@@ -1,6 +1,22 @@
-# cif_to_plip
+# 🔬 cif_to_plip
+
+> **CIF to strict PDB to PLIP. Trustworthy interaction profiling for co-folding outputs.**
+
+![python](https://img.shields.io/badge/python-3.11-3776AB?logo=python&logoColor=white) ![PLIP](https://img.shields.io/badge/PLIP-profiling-00897B) ![input](https://img.shields.io/badge/input-ModelCIF-9b51e0) ![licence](https://img.shields.io/badge/licence-MIT-467FF7) ![author](https://img.shields.io/badge/author-Marc%20C.%20Deller%2C%20D.Phil.-1C244B)
+
+<table>
+<tr>
+<td>🌐 <b>Website</b></td><td><a href="https://marcdeller.com" target="_blank" rel="noopener noreferrer">marcdeller.com</a></td>
+<td>✉️ <b>Contact</b></td><td><a href="mailto:marc@marcdeller.com">marc@marcdeller.com</a></td>
+<td>🐙 <b>GitHub</b></td><td><a href="https://github.com/bellcheddar/cif2plip" target="_blank" rel="noopener noreferrer">bellcheddar/cif2plip</a></td>
+</tr>
+</table>
+
+---
 
 **CIF → strict PDB → PLIP protein-ligand interaction analysis**
+
+Why it matters: co-folding tools such as Boltz-2, AlphaFold 3, and Chai-1 emit ModelCIF files that quietly violate the PDB format (multi-character chain IDs, oversized residue names, no bond table), and naive conversion introduces a subtle CONECT-parsing bug that corrupts ligand perception and invents fictitious interactions. cif_to_plip diagnoses and fixes every one of these issues before PLIP ever sees the structure, so the protein-ligand interactions you report are real. It is useful for anyone doing structure-based drug design on predicted complexes: reliable, reproducible interaction fingerprints (H-bonds, salt bridges, pi-stacking, halogen bonds, metal coordination) straight from a raw co-folding CIF.
 
 A single-file Python pipeline that converts a ModelCIF or mmCIF co-folding output into a format-compliant PDB file and feeds it directly into [PLIP](https://github.com/pharmai/plip) for full protein-ligand interaction profiling. Designed for downstream analysis of [Boltz-2](https://github.com/jwohlwend/boltz) and similar co-folding outputs where the input CIF carries no bond table and often contains multi-character chain IDs that break the PDB format specification.
 
@@ -165,3 +181,18 @@ If you use this pipeline in published work, please cite PLIP:
 And gemmi if the CIF conversion step is central to your workflow:
 
 > Wojdyr M (2022). GEMMI: A library for structural biology. *Journal of Open Source Software*, 7(73), 4200. https://doi.org/10.21105/joss.04200
+
+---
+
+## 👤 Author
+
+**Marc C. Deller, D.Phil.**  
+Structural biologist & drug discovery scientist  
+
+<table>
+<tr>
+<td>🌐</td><td><a href="https://marcdeller.com" target="_blank" rel="noopener noreferrer">marcdeller.com</a></td>
+<td>✉️</td><td><a href="mailto:marc@marcdeller.com">marc@marcdeller.com</a></td>
+<td>🐙</td><td><a href="https://github.com/bellcheddar/cif2plip" target="_blank" rel="noopener noreferrer">github.com/bellcheddar/cif2plip</a></td>
+</tr>
+</table>
